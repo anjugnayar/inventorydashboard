@@ -672,24 +672,24 @@ svg.leaflet-image-layer.leaflet-interactive path {
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #0a0d10;
-    --panel: #12171c;
-    --panel-2: #171d23;
-    --line: #232b32;
-    --line-soft: #1a2027;
-    --text: #e8edf1;
-    --text-dim: #93a1ab;
-    --text-faint: #5c6b75;
-    --amber: #f2a93b;
-    --amber-glow: rgba(242,169,59,0.35);
-    --red: #e0483e;
-    --red-glow: rgba(224,72,62,0.4);
-    --green: #35b37e;
-    --green-glow: rgba(53,179,126,0.3);
-    --yellow: #d8c447;
-    --blue: #4d9de0;
-    --ms-color: #4d9de0;
-    --hsd-color: #f2a93b;
+    --bg: #f4f2ee;
+    --panel: #ffffff;
+    --panel-2: #f1efe9;
+    --line: #e2ded4;
+    --line-soft: #ebe8e0;
+    --text: #1c1a16;
+    --text-dim: #6b6558;
+    --text-faint: #a19a89;
+    --amber: #c97a1f;
+    --amber-glow: rgba(201,122,31,0.25);
+    --red: #c23f34;
+    --red-glow: rgba(194,63,52,0.35);
+    --green: #24825a;
+    --green-glow: rgba(36,130,90,0.25);
+    --yellow: #a68a1f;
+    --blue: #2f6fa8;
+    --ms-color: #2f6fa8;
+    --hsd-color: #c97a1f;
     --radius: 10px;
   }
   *{box-sizing:border-box;}
@@ -698,8 +698,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .mono{font-family:'JetBrains Mono',monospace;}
   ::-webkit-scrollbar{width:9px;height:9px;}
   ::-webkit-scrollbar-track{background:var(--panel);}
-  ::-webkit-scrollbar-thumb{background:#2b333b;border-radius:6px;}
-  ::-webkit-scrollbar-thumb:hover{background:#3a444d;}
+  ::-webkit-scrollbar-thumb{background:#d5d0c3;border-radius:6px;}
+  ::-webkit-scrollbar-thumb:hover{background:#c2bcac;}
 
   #app{display:flex;flex-direction:column;height:100vh;}
 
@@ -707,7 +707,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   header{
     display:flex;align-items:center;gap:20px;
     padding:14px 22px;
-    background:linear-gradient(180deg, #10151a 0%, #0c1013 100%);
+    background:linear-gradient(180deg, #fbfaf7 0%, #f4f2ec 100%);
     border-bottom:1px solid var(--line);
     flex-shrink:0;
     position:relative;
@@ -741,7 +741,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     padding:9px 14px;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer;
     transition:.15s;white-space:nowrap;
   }
-  .upload-btn:hover{border-color:var(--amber);color:var(--amber);background:#1a1510;}
+  .upload-btn:hover{border-color:var(--amber);color:var(--amber);background:#fbf0e0;}
   .upload-btn svg{width:15px;height:15px;flex-shrink:0;}
   #fileInput{display:none;}
   .file-status{font-size:11px;color:var(--text-faint);margin-left:4px;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -781,7 +781,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     font-size:12px;font-weight:600;padding:7px 6px;border-radius:6px;cursor:pointer;transition:.15s;
     font-family:'Inter',sans-serif;
   }
-  .seg button.active{background:#242c33;color:var(--text);box-shadow:0 0 0 1px var(--line-soft);}
+  .seg button.active{background:#ffffff;color:var(--text);box-shadow:0 0 0 1px var(--line),0 1px 2px rgba(0,0,0,0.06);}
   .seg button.active.ms{color:var(--ms-color);}
   .seg button.active.hsd{color:var(--hsd-color);}
 
@@ -791,12 +791,15 @@ svg.leaflet-image-layer.leaflet-interactive path {
     font-size:11.5px;font-weight:600;padding:6px 11px;border-radius:20px;cursor:pointer;
     transition:.15s;user-select:none;
   }
-  .chip:hover{border-color:#3a444d;}
-  .chip.active{background:rgba(242,169,59,0.14);border-color:var(--amber);color:var(--amber);}
-  .chip.crit0.active{background:rgba(224,72,62,0.16);border-color:var(--red);color:#ff8a80;}
-  .chip.crit1.active{background:rgba(224,72,62,0.14);border-color:var(--red);color:#ff9a90;}
-  .chip.crit2.active{background:rgba(242,169,59,0.16);border-color:var(--amber);color:var(--amber);}
-  .chip.crit3.active{background:rgba(216,196,71,0.14);border-color:var(--yellow);color:var(--yellow);}
+  .chip:hover{border-color:#b9b2a0;}
+  .chip.active{background:rgba(201,122,31,0.12);border-color:var(--amber);color:var(--amber);}
+  .chip.crit0.active{background:rgba(194,63,52,0.14);border-color:var(--red);color:var(--red);}
+  .chip.crit1.active{background:rgba(194,63,52,0.11);border-color:var(--red);color:var(--red);}
+  .chip.crit2.active{background:rgba(201,122,31,0.14);border-color:var(--amber);color:var(--amber);}
+  .chip.crit3.active{background:rgba(166,138,31,0.13);border-color:var(--yellow);color:var(--yellow);}
+  .chip.type-coastal.active{background:rgba(47,111,168,0.13);border-color:var(--blue);color:var(--blue);}
+  .chip.type-pipeline.active{background:rgba(122,74,163,0.13);border-color:#7a4aa3;color:#7a4aa3;}
+  .chip.type-other.active{background:rgba(107,101,88,0.13);border-color:var(--text-dim);color:var(--text-dim);}
 
   .search-box{position:relative;}
   .search-box input{
@@ -819,10 +822,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
   /* ---------- MAP + SIDEBAR ---------- */
   .content{flex:1;display:flex;min-width:0;}
   .map-wrap{flex:1.35;position:relative;min-width:0;}
-  #map{width:100%;height:100%;background:#0a0d10;}
+  #map{width:100%;height:100%;background:#e9e6de;}
   .map-badge{
     position:absolute;bottom:14px;left:14px;z-index:500;
-    background:rgba(18,23,28,0.9);border:1px solid var(--line);border-radius:8px;
+    background:rgba(255,255,255,0.92);border:1px solid var(--line);border-radius:8px;
     padding:8px 12px;font-size:11px;color:var(--text-dim);backdrop-filter:blur(4px);
   }
 
@@ -843,7 +846,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     display:flex;align-items:center;gap:11px;
   }
   .loc-card:hover{background:var(--panel-2);}
-  .loc-card.selected{background:#1c1712;border-left:2px solid var(--amber);}
+  .loc-card.selected{background:#fbf0e0;border-left:2px solid var(--amber);}
   .loc-gauge{
     width:34px;height:34px;border-radius:50%;flex-shrink:0;position:relative;
     display:flex;align-items:center;justify-content:center;
@@ -857,6 +860,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .loc-transit b{color:var(--text);}
 
   .empty-state{padding:40px 20px;text-align:center;color:var(--text-faint);font-size:12.5px;}
+
+  .type-badge{
+    display:inline-block;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;
+    padding:2px 6px;border-radius:4px;margin-left:6px;vertical-align:middle;
+  }
+  .type-badge.coastal{background:rgba(47,111,168,0.13);color:var(--blue);}
+  .type-badge.pipeline{background:rgba(122,74,163,0.13);color:#7a4aa3;}
 
   /* ---------- LEAFLET OVERRIDES ---------- */
   .leaflet-popup-content-wrapper{
@@ -880,8 +890,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .pulse{animation:pulseAnim 1.7s ease-in-out infinite;}
   @keyframes pulseAnim{
     0%{box-shadow:0 0 0 0 var(--red-glow);}
-    70%{box-shadow:0 0 0 12px rgba(224,72,62,0);}
-    100%{box-shadow:0 0 0 0 rgba(224,72,62,0);}
+    70%{box-shadow:0 0 0 12px rgba(194,63,52,0);}
+    100%{box-shadow:0 0 0 0 rgba(194,63,52,0);}
   }
 
   @media (max-width: 980px){
@@ -927,6 +937,15 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="filter-group">
         <h3>Region</h3>
         <div class="chip-row" id="regionChips"></div>
+      </div>
+
+      <div class="filter-group">
+        <h3>Location Type</h3>
+        <div class="chip-row" id="typeChips">
+          <div class="chip type-coastal" data-v="COASTAL">Coastal</div>
+          <div class="chip type-pipeline" data-v="PIPELINE">Pipeline</div>
+          <div class="chip type-other" data-v="OTHER">Other</div>
+        </div>
       </div>
 
       <div class="filter-group">
@@ -1025,11 +1044,29 @@ window.DEFAULT_DATA = {"locations": {"1219": {"state": "Assam", "region": "EAST"
 const REGION_ORDER = ["EAST", "NORTH", "SOUTH", "WEST"];
 const REGION_COLORS = { EAST: "#4d9de0", NORTH: "#9b7ede", SOUTH: "#35b37e", WEST: "#f2a93b" };
 
+const COASTAL_CODES = new Set(["1400","1456","1304","1352","1303","1202","1201","1370","6401","1305"]);
+const PIPELINE_CODES = new Set(["1403","1401","1452","1414","1168","1113","1100","1181","1139","1185","1162","1301","1349","1350","1370","1373"]);
+const TYPE_ORDER = ["COASTAL", "PIPELINE", "OTHER"];
+
+function locationTypes(plantCode) {
+  const tags = [];
+  if (COASTAL_CODES.has(plantCode)) tags.push("COASTAL");
+  if (PIPELINE_CODES.has(plantCode)) tags.push("PIPELINE");
+  if (!tags.length) tags.push("OTHER");
+  return tags;
+}
+
+function typeBadgesHtml(plantCode) {
+  const tags = locationTypes(plantCode).filter(t => t !== "OTHER");
+  return tags.map(t => `<span class="type-badge ${t.toLowerCase()}">${t[0]}${t.slice(1).toLowerCase()}</span>`).join("");
+}
+
 const state = {
   locations: {},      // plantCode -> {state, region, lat, lon}
   records: [],         // parsed rows
   product: "ALL",       // ALL | MS | HSD
   regions: new Set(REGION_ORDER),
+  types: new Set(TYPE_ORDER),
   crit: new Set(),      // subset of 0,1,2,3
   search: "",
   selectedPlant: null,
@@ -1148,7 +1185,7 @@ function transitValue(rec) {
 }
 
 function coverColor(v) {
-  if (v === null || v === undefined || isNaN(v)) return "#4a5560";
+  if (v === null || v === undefined || isNaN(v)) return "#9a9384";
   if (v <= 1) return "#e0483e";
   if (v <= 3) return "#f2a93b";
   if (v <= 7) return "#d8c447";
@@ -1172,6 +1209,8 @@ function filteredRecords() {
   return state.records.filter(rec => {
     const region = regionOf(rec);
     if (!state.regions.has(region)) return false;
+    const tags = locationTypes(rec.plantCode);
+    if (!tags.some(t => state.types.has(t))) return false;
     if (q) {
       const hay = (rec.location + " " + rec.plantCode).toLowerCase();
       if (!hay.includes(q)) return false;
@@ -1231,7 +1270,7 @@ function renderKPIs(list) {
 
 function initMap() {
   map = L.map("map", { zoomControl: true, attributionControl: true }).setView([22.5, 80], 5);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
     attribution: '&copy; OpenStreetMap &copy; CARTO',
     subdomains: "abcd",
     maxZoom: 19,
@@ -1248,7 +1287,7 @@ function gaugeSvg(v, sizeOuter, ring) {
   const dash = circumference * pct;
   return `
     <svg width="${sizeOuter}" height="${sizeOuter}" viewBox="0 0 ${sizeOuter} ${sizeOuter}">
-      <circle cx="${c}" cy="${c}" r="${r}" fill="#12171c" stroke="#232b32" stroke-width="${ring}"/>
+      <circle cx="${c}" cy="${c}" r="${r}" fill="#ffffff" stroke="#d8d3c5" stroke-width="${ring}"/>
       <circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="${color}" stroke-width="${ring}"
         stroke-dasharray="${dash} ${circumference}" stroke-linecap="round"
         transform="rotate(-90 ${c} ${c})"/>
@@ -1263,7 +1302,7 @@ function markerIcon(rec) {
   const svg = gaugeSvg(v, size, critical ? 5 : 4);
   return L.divIcon({
     className: critical ? "leaflet-div-icon pulse" : "leaflet-div-icon",
-    html: `<div style="border-radius:50%;">${svg}</div>`,
+    html: `<div style="border-radius:50%;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.28));">${svg}</div>`,
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     popupAnchor: [0, -size / 2],
@@ -1274,7 +1313,7 @@ function popupHtml(rec) {
   const lm = locMeta(rec);
   const region = regionOf(rec);
   return `
-    <div class="popup-title">${rec.location}</div>
+    <div class="popup-title">${rec.location}${typeBadgesHtml(rec.plantCode)}</div>
     <div class="popup-sub">Plant ${rec.plantCode} · ${lm && lm.state ? lm.state + " · " : ""}${region}</div>
 
     <div class="popup-prod ms">● MOTOR SPIRIT (MS)</div>
@@ -1324,7 +1363,7 @@ function renderSideList(list) {
       <div class="loc-card ${selected}" data-plant="${rec.plantCode}">
         <div class="loc-gauge" style="background:${color}22;border:2px solid ${color};color:${color};">${fmtCover(v)}</div>
         <div class="loc-info">
-          <div class="loc-name">${rec.location}</div>
+          <div class="loc-name">${rec.location}${typeBadgesHtml(rec.plantCode)}</div>
           <div class="loc-meta">${rec.plantCode} · ${lm && lm.state ? lm.state : regionOf(rec)}</div>
         </div>
         <div class="loc-right">
@@ -1382,6 +1421,18 @@ function buildRegionChips() {
   });
 }
 
+function buildTypeChips() {
+  document.querySelectorAll("#typeChips .chip").forEach(chip => {
+    chip.classList.add("active");
+    chip.addEventListener("click", () => {
+      const t = chip.getAttribute("data-v");
+      if (state.types.has(t)) { state.types.delete(t); chip.classList.remove("active"); }
+      else { state.types.add(t); chip.classList.add("active"); }
+      renderAll();
+    });
+  });
+}
+
 function wireFilters() {
   document.getElementById("productSeg").querySelectorAll("button").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -1410,11 +1461,13 @@ function wireFilters() {
   document.getElementById("resetAll").addEventListener("click", () => {
     state.product = "ALL";
     state.regions = new Set(REGION_ORDER);
+    state.types = new Set(TYPE_ORDER);
     state.crit.clear();
     state.search = "";
     document.getElementById("searchBox").value = "";
     document.getElementById("productSeg").querySelectorAll("button").forEach(b => b.classList.toggle("active", b.getAttribute("data-v") === "ALL"));
     document.querySelectorAll("#regionChips .chip").forEach(c => c.classList.add("active"));
+    document.querySelectorAll("#typeChips .chip").forEach(c => c.classList.add("active"));
     document.querySelectorAll("#critChips .chip").forEach(c => c.classList.remove("active"));
     renderAll();
   });
@@ -1501,6 +1554,7 @@ document.getElementById("fileInput").addEventListener("change", (e) => {
 function boot() {
   initMap();
   buildRegionChips();
+  buildTypeChips();
   wireFilters();
   if (window.DEFAULT_DATA) {
     const d = window.DEFAULT_DATA;

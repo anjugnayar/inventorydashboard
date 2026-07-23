@@ -797,6 +797,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .chip.crit1.active{background:rgba(194,63,52,0.11);border-color:var(--red);color:var(--red);}
   .chip.crit2.active{background:rgba(201,122,31,0.14);border-color:var(--amber);color:var(--amber);}
   .chip.crit3.active{background:rgba(166,138,31,0.13);border-color:var(--yellow);color:var(--yellow);}
+  .chip.transit-zero.active{background:rgba(47,111,168,0.13);border-color:var(--blue);color:var(--blue);}
   .chip.type-coastal.active{background:rgba(47,111,168,0.13);border-color:var(--blue);color:var(--blue);}
   .chip.type-pipeline.active{background:rgba(122,74,163,0.13);border-color:#7a4aa3;color:#7a4aa3;}
   .chip.type-other.active{background:rgba(107,101,88,0.13);border-color:var(--text-dim);color:var(--text-dim);}
@@ -960,6 +961,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
       </div>
 
       <div class="filter-group">
+        <h3>In-Transit</h3>
+        <div class="chip-row" id="transitChips">
+          <div class="chip transit-zero" data-v="zero">Zero In-Transit</div>
+        </div>
+      </div>
+
+      <div class="filter-group">
         <h3>Search Location</h3>
         <div class="search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1068,6 +1076,7 @@ const state = {
   regions: new Set(REGION_ORDER),
   types: new Set(TYPE_ORDER),
   crit: new Set(),      // subset of 0,1,2,3
+  zeroTransitOnly: false,
   search: "",
   selectedPlant: null,
   asOf: null,
@@ -1287,6 +1296,7 @@ function filteredRecords() {
       const bucket = Math.floor(cv); // 0,1,2,3,4... — chips only offer 0-3 (the critical band)
       if (bucket > 3 || !state.crit.has(bucket)) return false;
     }
+    if (state.zeroTransitOnly && transitValue(rec) !== 0) return false;
     return true;
   }).sort((a, b) => {
     const ca = coverValue(a), cb = coverValue(b);
@@ -1531,17 +1541,27 @@ function wireFilters() {
     renderAll();
   });
 
+  document.querySelectorAll("#transitChips .chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      state.zeroTransitOnly = !state.zeroTransitOnly;
+      chip.classList.toggle("active", state.zeroTransitOnly);
+      renderAll();
+    });
+  });
+
   document.getElementById("resetAll").addEventListener("click", () => {
     state.product = "ALL";
     state.regions = new Set(REGION_ORDER);
     state.types = new Set(TYPE_ORDER);
     state.crit.clear();
+    state.zeroTransitOnly = false;
     state.search = "";
     document.getElementById("searchBox").value = "";
     document.getElementById("productSeg").querySelectorAll("button").forEach(b => b.classList.toggle("active", b.getAttribute("data-v") === "ALL"));
     document.querySelectorAll("#regionChips .chip").forEach(c => c.classList.add("active"));
     document.querySelectorAll("#typeChips .chip").forEach(c => c.classList.add("active"));
     document.querySelectorAll("#critChips .chip").forEach(c => c.classList.remove("active"));
+    document.querySelectorAll("#transitChips .chip").forEach(c => c.classList.remove("active"));
     renderAll();
   });
 
